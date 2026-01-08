@@ -1,0 +1,18 @@
+name: Notifikasi Perkembangan Baba
+
+on:
+  schedule:
+    - cron: '0 0 17 * *'
+  workflow_dispatch:
+
+jobs:
+  cek-baba:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Jalankan checklist Baba
+        run: python checklist_baba.py
